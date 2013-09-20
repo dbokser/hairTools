@@ -1,0 +1,46 @@
+Version 1.5
+January 15th, 2012:
+	- Added new functions
+		trimFromBeginning(inputCurves, shortestLength)
+			Cuts the inputCurves from the beginning, with shortestLength dictating the percentage from 
+			0.0 to 1.0 of how short the shortest hair is.
+		snapBaseToScalp(curves, scalp, mult=[.7, .4, .1])
+			Snaps the first CV on the given curves to the given scalp, with the mult value being
+			the transition movement of the following 3 CVs
+		pushCVOutFromScalp(cvs, scalp, pushMult = 1.5)
+			Pushes given CVs away or toward the given scalp using the pushMult value
+		pushCurveOutFromScalp(curves, scalp, pushMult = 1.5)
+			Pushes given curves away or toward the given scalp using the pushMult value
+		averageCV(amount=1.0)
+			Similar to average vertex but works on CVs, takes an average of the CVs before and after and
+			translates the selected CVs accordingly
+		createInterpolatedCurve(curve1, curve2, v)
+			Creates an inbetween curve given the 2 curves and a middle value
+		createRandomInterpolatedCurves(curves, numCurves)
+			Selects random pairs from the given curves and creates random interpolated curves. The
+			number of curves that are created is dictated by numCurves,
+
+Version 1.12
+September 9th, 2010:
+	- Added higher max twist value to 5
+
+
+Version 1.11
+September 7th, 2010:
+	- Fixed bug that wouldn't create intermediate hull curves on negative twist values.
+
+
+Version 1.1
+September 6th, 2010:
+	- Added ability to twist hair
+	- Fixed a bug that errored out if no hairs were created. Now just gives a warning
+
+
+Version 1.02
+August 1st, 2010:
+	- Added function to create single curve down the center of the geometry.
+
+
+Version 1.0
+July 14th, 2010:
+	- Initial release
