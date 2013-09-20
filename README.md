@@ -1,7 +1,7 @@
 hairTools
 =========
 Author: David Bokser
-email: me@davidbokser.com
+E-Mail: me@davidbokser.com
 
 Website : http://www.davidbokser.com
 ------------------------------------------
@@ -13,4 +13,5 @@ import hairTools.hairTools as hairTools
 hairTools.hairballUI()
 
 COPYRIGHT DAVID BOKSER 2010-2013.
+
 ================================================================
