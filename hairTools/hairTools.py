@@ -38,9 +38,9 @@ hairTools.hairballUI()
 ''' % window)
 	mc.frameLayout( label='Grow', labelAlign='center', borderStyle='etchedIn' )
 	mc.columnLayout( adjustableColumn=True )	
-	densityField = mc.floatSliderGrp( label='Density', cw3=[80, 80, 120], field=True, value = .4, fs=.01, minValue=.01, maxValue=1.0, fmx=200.0 )
+	densityField = mc.floatSliderGrp( label='Density', cw3=[80, 80, 120], precision=2, field=True, value = .4, fs=.01, minValue=.01, maxValue=1.0, fmx=200.0 )
 	layerField = mc.intSliderGrp( label='Layers', cw3=[80, 80, 120], field=True, value = 5, minValue=1, maxValue=15, fmx=200 )
-	twistField = mc.floatSliderGrp( label='Twist', cw3=[80, 80, 120], field=True, value = 0, fs=.01, minValue=-1.0, maxValue=1.0, fmx=5.0, fmn=-5.0 )
+	twistField = mc.floatSliderGrp( label='Twist', cw3=[80, 80, 120], precision=2, field=True, value = 0, fs=.01, minValue=-1.0, maxValue=1.0, fmx=5.0, fmn=-5.0 )
 	mc.button( label='Cough it up!', command='''
 import maya.cmds as mc
 import hairTools.hairTools as hairTools
@@ -51,9 +51,9 @@ hairTools.makeHair(mc.ls(sl=True, fl=True), mc.floatSliderGrp("%s", q=True, valu
 	
 	mc.frameLayout( label='Groom', labelAlign='center', borderStyle='etchedIn' )
 	mc.columnLayout( adjustableColumn = True)
-	rand1Field = mc.floatSliderGrp( label='Start', cw3=[80, 80, 120], field=True, value = .1, fs=.1, minValue=0, maxValue=5.0, fmx=200.0 )
-	rand2Field = mc.floatSliderGrp( label='Middle', cw3=[80, 80, 120], field=True, value = .4, fs=.1, minValue=0, maxValue=5.0, fmx=200.0 )
-	rand3Field = mc.floatSliderGrp( label='End', cw3=[80, 80, 120], field=True, value = .6, fs=.1, minValue=0, maxValue=5.0, fmx=200.0 )
+	rand1Field = mc.floatSliderGrp( label='Start', cw3=[80, 80, 120], precision=2, field=True, value = .1, fs=.1, minValue=0, maxValue=5.0, fmx=200.0 )
+	rand2Field = mc.floatSliderGrp( label='Middle', cw3=[80, 80, 120], precision=2, field=True, value = .4, fs=.1, minValue=0, maxValue=5.0, fmx=200.0 )
+	rand3Field = mc.floatSliderGrp( label='End', cw3=[80, 80, 120], precision=2, field=True, value = .6, fs=.1, minValue=0, maxValue=5.0, fmx=200.0 )
 	mc.button( label='Muss it up.', command='''
 import maya.cmds as mc
 import hairTools.hairTools as hairTools
@@ -64,8 +64,8 @@ hairTools.randomizeHair(mc.ls(sl=True, fl=True), [mc.floatSliderGrp("%s", q=True
 	
 	mc.frameLayout( label='Trim', labelAlign='center', borderStyle='etchedIn' )
 	mc.columnLayout( adjustableColumn = True)
-	minTrimField = mc.floatSliderGrp( label='Min Length', cw3=[80, 80, 120], field=True, value = .3, fs=.1, minValue=0.1, maxValue=1.0 )
-	percentTrimField = mc.floatSliderGrp( label='Percent to trim', cw3=[80, 80, 120], field=True, value = .5, fs=.1, minValue=0.1, maxValue=1.0 )
+	minTrimField = mc.floatSliderGrp( label='Min Length', cw3=[80, 80, 120], precision=2, field=True, value = .3, fs=.1, minValue=0.1, maxValue=1.0 )
+	percentTrimField = mc.floatSliderGrp( label='Percent to trim', cw3=[80, 80, 120], precision=2, field=True, value = .5, fs=.1, minValue=0.1, maxValue=1.0 )
 	mc.button( label='A little off the top.', command='''
 import maya.cmds as mc
 import hairTools.hairTools as hairTools
@@ -179,7 +179,7 @@ def makeIntermediateCurves(curve1, curve2, numIntermediates=1, close=True):
 	
 	step = 1.0/(numIntermediates+1)
 	allCurves = []
-	for p in range(1, numIntermediates+1):
+	for p in range(1, int(numIntermediates)+1):
 		points = []
 		for i in range(mc.getAttr(cShape1+'.spans')):
 			p1 = mc.pointPosition('%s.cv[%i]' % (curve1,i))
